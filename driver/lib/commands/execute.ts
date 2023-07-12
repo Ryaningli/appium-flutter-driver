@@ -9,6 +9,9 @@ export const execute = async function(
   rawCommand: string,
   args: any[],
 ) {
+  logger.debug('debugdebugdebugdebugdebugdebugdebugdebugdebugdebug');
+  logger.info('infoinfoinfoinfoinfoinfoinfoinfoinfoinfo');
+  logger.error('errorerrorerrorerrorerrorerrorerrorerror');
   // flutter
   const matching = rawCommand.match(flutterCommandRegex);
   if (!matching) {
