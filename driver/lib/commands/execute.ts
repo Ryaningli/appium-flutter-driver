@@ -2,6 +2,7 @@ import { FlutterDriver } from '../driver';
 import { longTap, scroll, scrollIntoView, scrollUntilVisible, scrollUntilTapable } from './execute/scroll';
 import { waitFor, waitForAbsent, waitForTappable } from './execute/wait';
 const flutterCommandRegex = /^[\s]*flutter[\s]*:(.+)/;
+import { log as logger } from './logger';
 
 export const execute = async function(
   this: FlutterDriver,
@@ -182,7 +183,7 @@ const setTextEntryEmulation = async (self: FlutterDriver, enabled: boolean) =>
 
 const clickElement = async (self:FlutterDriver, elementBase64: string, opts) => {
   const {timeout = 1000} = opts;
-  console.log('-------------------------my----------', opts, timeout);
+  logger.debug(`-------------------------my----------${opts}----${timeout}`);
   return await self.executeElementCommand(`tap`, elementBase64, {
         timeout
   });
